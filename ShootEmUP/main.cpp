@@ -1,7 +1,8 @@
 #include <QApplication>
 #include <QGraphicsScene>
-#include <QGraphicsRectItem>
 #include <QGraphicsView>
+
+#include "PlayerRect.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,11 +13,15 @@ int main(int argc, char *argv[])
     QGraphicsScene* scene = new QGraphicsScene();
 
     // Créer notre rectangle qui représente notre joueur
-    QGraphicsRectItem* rect = new QGraphicsRectItem();
+    PlayerRect* rect = new PlayerRect();
     rect->setRect(0,0,100,100); // On défini la position et la taille de notre rectangle
 
     // Ajouter notre joueur dans la scene
     scene->addItem(rect);
+
+    // Faire en sorte que notre player soit l'objet "focus" pour intéragir avec nos inputs
+    rect->setFlag(QGraphicsRectItem::ItemIsFocusable);
+    rect->setFocus();
 
     // Pour visualiser la scene nous devons rajouter notre "vue"
     QGraphicsView* view = new QGraphicsView(scene);
