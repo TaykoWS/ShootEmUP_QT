@@ -9,6 +9,9 @@
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
 
+#include <QImage>
+#include <QBrush>
+
 #include "Player.h"
 #include "Score.h"
 #include "Health.h"

@@ -1,14 +1,17 @@
 #include "Player.h"
 #include "Bullet.h"
-
 #include "Enemy.h"
 
 #include <QDebug>
 
-Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent)
+Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
+    // Créer un son pour les balles
     bulletSound = new QMediaPlayer();
-    bulletSound->setMedia(QUrl("qrc:/Sounds/Fire1.mp3"));
+    bulletSound->setMedia(QUrl("qrc:/Sounds/Assets/Sons/Misc Lasers/FireP.mp3"));
+
+    // Création de notre joueur en image
+    setPixmap(QPixmap(":/Graphics/Assets/Arts/Without Source files -Game Assets/TBM3/Type_1/TBM-3.png"));
 }
 
 void Player::keyPressEvent(QKeyEvent* event)
@@ -21,7 +24,7 @@ void Player::keyPressEvent(QKeyEvent* event)
     }
     // si le joueur appuis sur la flèche de droite il va à 10 pixels vers la droite, il se retrouve bloquer s'il atteint la largeur de l'écran
     else if(event->key() == Qt::Key_Right){
-        if(pos().x() + rect().width() < 800){
+        if(pos().x() < 800){
          setPos(x()+10, y());
         }
     }
@@ -39,7 +42,7 @@ void Player::keyPressEvent(QKeyEvent* event)
     // si le joueur appuis sur la barre espace il tir une balle depuis le milieu de sa position
     else if(event->key() == Qt::Key_Space){
         Bullet* bullet = new Bullet();
-        bullet->setPos(x() + rect().width()/2 , y());
+        bullet->setPos(x() + 115, y() + 30);
         scene()->addItem(bullet);
 
         // Jouer le son de la balle
@@ -52,7 +55,6 @@ void Player::keyPressEvent(QKeyEvent* event)
     }
 }
 
-// Ne pas oublier de changer d'endroit cette fonction pour faire spawn des ennemis
 void Player::spawn()
 {
     // Créer un ennemi

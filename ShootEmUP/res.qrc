@@ -1,6 +1,17 @@
 <RCC>
     <qresource prefix="/Sounds">
-        <file>JuhaniJunkalaRetroGameMusicPackLevel1.wav</file>
-        <file>Fire1.mp3</file>
+        <file>Assets/Sons/5 Action Chiptunes By Juhani Junkala/Level1.wav</file>
+        <file>Assets/Sons/Misc Lasers/FireP.mp3</file>
+        <file>Assets/Sons/Misc Lasers/FireE.mp3</file>
+        <file>Assets/Sons/Misc Lasers/GameOver.mp3</file>
+        <file>Assets/Sons/Misc Lasers/Hit.mp3</file>
+    </qresource>
+    <qresource prefix="/Graphics">
+        <file>Assets/Arts/Without Source files -Game Assets/TBM3/Type_1/TBM-3.png</file>
+        <file>Assets/Arts/Without Source files -Game Assets/Hawker Tempest MKII/Type_1/Hawker_type1.png</file>
+        <file>Assets/Arts/VFX/BulletE.png</file>
+        <file>Assets/Arts/VFX/BulletP.png</file>
+        <file>Assets/Arts/VFX/impact.png</file>
+        <file>Assets/Arts/Background/sky.png</file>
     </qresource>
 </RCC>

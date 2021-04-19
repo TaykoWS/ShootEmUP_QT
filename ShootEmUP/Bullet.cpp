@@ -7,10 +7,10 @@
 
 extern Game* game; // "Extern" veux dire qu'on veux accéder à une variable ou un objet défini globalement (dans notre cas, dans notre "main")
 
-Bullet::Bullet()
+Bullet::Bullet(QGraphicsItem* parent): QObject(), QGraphicsPixmapItem(parent)
 {
-    // Création de la balle rectangulaire
-    setRect(0,0,10,50);
+    // Création de la balle en image
+    setPixmap(QPixmap(":/Graphics/Assets/Arts/VFX/BulletP.png"));
 
     // Connexion à QT
     QTimer* timer = new QTimer();
@@ -40,8 +40,9 @@ void Bullet::move()
     // Déplacer la balle vers le haut
     setPos(x(),y()-10);
     // Si la balle sort de la "Scene view" alors elle est supprimé pour libérer de la mémoire
-    if(pos().y() + rect().height() < 0){
+    if(pos().y() < 0){
         scene()->removeItem(this);
         delete this;
+        qDebug() << "balle supprimé";
     }
 }

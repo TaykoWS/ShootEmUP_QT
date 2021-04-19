@@ -5,6 +5,7 @@ Game::Game(QWidget *parent)
     // Créer la scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // Donne une taille fixe à notre "Scene" égal à notre "Scene View"
+    setBackgroundBrush(QBrush(QImage(":/Graphics/Assets/Arts/Background/sky.png"))); // On dessine le Background du niveau
 
     // On défini la "Scene" nouvellement créer en tant que "Scene" à visualiser,
     //du fait que la classe "Game" inclue la "GraphicsView" on a un moyen de l'afficher directement
@@ -16,12 +17,11 @@ Game::Game(QWidget *parent)
 
     // Créer notre joueur
     player = new Player();
-    player->setRect(0,0,100,100); // On défini la position et la taille de notre rectangle "Player"
     // On position le joueur au milieu de la "Scene View" et on lui soustrait sa hauteur avec la hauteur de la "Scene View"
     //pour qu'il soit en bas de l'écran
-    player->setPos(scene->width()/2, scene->height() - player->rect().height());
+    player->setPos(400,400); // TODO : faire en sorte d'être toujours au milieu de l'écran peu importe la résoluton
     // Faire en sorte que notre player soit l'objet "focus" pour intéragir avec nos inputs
-    player->setFlag(QGraphicsRectItem::ItemIsFocusable);
+    player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     // Ajouter notre joueur dans la scene
     scene->addItem(player);
@@ -43,7 +43,7 @@ Game::Game(QWidget *parent)
     playlist = new QMediaPlaylist();
     // "QUrl", Permet d'accéder aux fichiers se situant sur son ordinateur en local ou sur internet
     // "Qrc", Permet d'accéder directement aux ressources du projet QT
-    playlist->addMedia(QUrl("qrc:/Sounds/JuhaniJunkalaRetroGameMusicPackLevel1.wav"));
+    playlist->addMedia(QUrl("qrc:/Sounds/Assets/Sons/5 Action Chiptunes By Juhani Junkala/Level1.wav"));
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
     music = new QMediaPlayer();
