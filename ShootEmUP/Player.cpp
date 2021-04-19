@@ -24,7 +24,7 @@ void Player::keyPressEvent(QKeyEvent* event)
     }
     // si le joueur appuis sur la flèche de droite il va à 10 pixels vers la droite, il se retrouve bloquer s'il atteint la largeur de l'écran
     else if(event->key() == Qt::Key_Right){
-        if(pos().x() < 800){
+        if(pos().x() + 250 < 800){
          setPos(x()+10, y());
         }
     }

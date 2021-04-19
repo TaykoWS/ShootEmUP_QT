@@ -9,8 +9,8 @@ Enemy::Enemy(QGraphicsItem* parent): QObject(), QGraphicsPixmapItem(parent)
 {
     // Donne une position aléatoire à notre ennemi
     // On veut que notre ennemi ne soit pas instancié en dehors de la largeur de l'écran et comme l'image est grande
-    //donc on réduit à environ 450 pixels
-    int random_num = rand() % 350;
+    //donc on réduit à environ 250 pixels
+    int random_num = rand() % 650;
     setPos(random_num,0);
 
     // Création de notre ennemi en image
