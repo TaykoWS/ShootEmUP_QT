@@ -7,10 +7,15 @@
 
 #include <QObject>
 
+#include <QMediaPlayer>
+
 class Player: public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:
-    void keyPressEvent(QKeyEvent* event); // Pour crÃ©er un event quand une touche est appuyÃ©
+    Player (QGraphicsItem* parent=0);
+    void keyPressEvent(QKeyEvent* event); // Pour créer un event quand une touche est appuyé
+private:
+    QMediaPlayer* bulletSound;
 public slots:
     void spawn();
 };

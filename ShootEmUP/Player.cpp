@@ -5,6 +5,12 @@
 
 #include <QDebug>
 
+Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent)
+{
+    bulletSound = new QMediaPlayer();
+    bulletSound->setMedia(QUrl("qrc:/Sounds/Fire1.mp3"));
+}
+
 void Player::keyPressEvent(QKeyEvent* event)
 {
     // si le joueur appuis sur la flèche de gauche il va à 10 pixels vers la gauche, il se retrouve bloquer s'il atteint la largeur de l'écran
@@ -35,6 +41,14 @@ void Player::keyPressEvent(QKeyEvent* event)
         Bullet* bullet = new Bullet();
         bullet->setPos(x() + rect().width()/2 , y());
         scene()->addItem(bullet);
+
+        // Jouer le son de la balle
+        if(bulletSound->state() == QMediaPlayer::PlayingState){
+            bulletSound->setPosition(0);
+        }
+        else if(bulletSound->state() == QMediaPlayer::StoppedState){
+            bulletSound->play();
+        }
     }
 }
 

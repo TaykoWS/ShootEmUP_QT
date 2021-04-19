@@ -6,6 +6,9 @@
 #include <QGraphicsView>
 #include <QTimer>
 
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
+
 #include "Player.h"
 #include "Score.h"
 #include "Health.h"
@@ -18,6 +21,8 @@ public:
     Player* player;
     Score* score;
     Health* health;
+    QMediaPlaylist* playlist;
+    QMediaPlayer* music;
 };
 
 #endif // GAME_H

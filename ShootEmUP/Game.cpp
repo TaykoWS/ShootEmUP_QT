@@ -38,4 +38,15 @@ Game::Game(QWidget *parent)
     // A changer après le tuto pour créer une classe Game qui contiendra toute les instances du jeu, instancier depuis le player est une mauvaise idée
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000); // 2000 millisecondes = 2 secondes
+
+    // Jouer la musique du niveau en boucle
+    playlist = new QMediaPlaylist();
+    // "QUrl", Permet d'accéder aux fichiers se situant sur son ordinateur en local ou sur internet
+    // "Qrc", Permet d'accéder directement aux ressources du projet QT
+    playlist->addMedia(QUrl("qrc:/Sounds/JuhaniJunkalaRetroGameMusicPackLevel1.wav"));
+    playlist->setPlaybackMode(QMediaPlaylist::Loop);
+
+    music = new QMediaPlayer();
+    music->setPlaylist(playlist);
+    music->play();
 }
