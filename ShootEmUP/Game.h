@@ -17,6 +17,7 @@
 #include "Health.h"
 
 class Game: public QGraphicsView{
+    Q_OBJECT
 public:
     Game(QWidget* parent=0);
 
@@ -26,6 +27,9 @@ public:
     Health* health;
     QMediaPlaylist* playlist;
     QMediaPlayer* music;
+public slots:
+    void end();
+
 };
 
 #endif // GAME_H

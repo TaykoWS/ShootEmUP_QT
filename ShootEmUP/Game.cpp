@@ -1,5 +1,5 @@
 #include "Game.h"
-
+#include <QApplication>
 Game::Game(QWidget *parent)
 {
     // Créer la scene
@@ -49,4 +49,9 @@ Game::Game(QWidget *parent)
     music = new QMediaPlayer();
     music->setPlaylist(playlist);
     music->play();
+    connect( health, SIGNAL(dead()), this, SLOT(end()) );
+
+}
+void Game::end(){
+    QApplication::quit();
 }

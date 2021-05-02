@@ -1,5 +1,4 @@
 #include <Health.h>
-
 Health::Health(QGraphicsItem *parent) : QGraphicsTextItem(parent) // Même chose que pour "Score"
 {
     // Initialiser la vie à 3
@@ -19,6 +18,7 @@ void Health::decrease()
     if(health <= 0){
         health = 0;
         setPlainText("Health : " + QString::number(health));
+        emit dead();
     }
 }
 
