@@ -10,4 +10,3 @@ Contrôles :
 
 Objectif :
 - Tue tes ennemis et empêche les de passer dérrière toi pour ne pas mourir
-*TODO -> Pour le moment on ne peut pas mourir et le jeu est infini
